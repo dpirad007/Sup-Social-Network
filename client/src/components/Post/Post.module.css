@@ -1,0 +1,13 @@
+.card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.content {
+  padding: 25;
+}
+
+.image {
+  min-width: 200;
+  object-fit: cover;
+}

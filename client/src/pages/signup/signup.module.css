@@ -1,0 +1,20 @@
+.form {
+  text-align: center;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.textField {
+  margin-top: 10px !important;
+}
+
+.pageTitle {
+  color: #a9a9a9;
+}
+
+.button {
+  margin-top: 15px !important;
+}
