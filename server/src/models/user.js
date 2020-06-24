@@ -65,8 +65,7 @@ const userSchema = new mongoose.Schema(
     },
     piclink: {
       type: String,
-      default:
-        "https://cdn1.iconfinder.com/data/icons/cute-yellow-emoji/512/emoticon_final_noface-512.png",
+      default: "https://material-ui.com/static/logo.png",
     },
   },
   {

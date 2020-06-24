@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 //component
 import AddSup from "../AddSup/AddSup";
 
+//page
+import maha from "../../pages/maha/maha";
+
 //material ui
 import {
   AppBar,
@@ -15,6 +18,7 @@ import {
 
 //icons
 import InfoIcon from "@material-ui/icons/Info";
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import HomeIcon from "@material-ui/icons/Home";
 
 //styles
@@ -29,6 +33,11 @@ class Navbar extends Component {
         <Tooltip title="Home" placement="bottom">
           <IconButton className={styles.button} component={Link} to="/">
             <HomeIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Covid" placement="bottom">
+          <IconButton className={styles.button} component={Link} to="/maha">
+            <AssessmentIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="About Developers" placement="bottom">

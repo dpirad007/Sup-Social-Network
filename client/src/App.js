@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import "./App.css";
 
 //pages
-import { home, login, signup, about } from "./pages";
+import { home, login, signup, about, maha } from "./pages";
 
 //components
 import { Navbar } from "./components";
@@ -47,6 +47,7 @@ class App extends Component {
                 authenticated={authenticated}
               />
               <Route exact path="/about" component={about} />
+              <Route exact path="/maha" component={maha} />
             </Switch>
           </div>
         </Router>
