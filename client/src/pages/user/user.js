@@ -15,11 +15,11 @@ class user extends Component {
   };
   componentDidMount() {
     const handle = this.props.match.params.id;
-    console.log(handle);
+    //console.log(handle);
     axios
       .get(`http://localhost:5000/users/me/${handle}`)
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         this.setState({ profile: res.data });
       })
       .catch((err) => console.log(err));
@@ -27,7 +27,7 @@ class user extends Component {
     axios
       .get(`http://localhost:5000/tasks/profile/${handle}`)
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         this.setState({ posts: res.data });
       })
       .catch((err) => console.log(err));

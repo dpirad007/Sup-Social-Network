@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 //styles
 import styles from "./store.module.css";
+
+//components
+import StoreItem from "../../components/StoreItem/StoreItem";
 
 //material ui
 import {
@@ -17,46 +21,26 @@ import {
 } from "@material-ui/core";
 
 class store extends Component {
+  state = {
+    products: [],
+  };
+  componentDidMount() {
+    axios.get("http://localhost:5000/api/store").then((res) => {
+      console.log(res.data);
+      this.setState({ products: res.data });
+    });
+  }
+
   render() {
+    let storeItems = this.state.products.map((product) => (
+      <Grid item sm={4} xs={12}>
+        <StoreItem product={product} />
+      </Grid>
+    ));
     return (
-      <div>
-        <Grid container>
-          <Grid item sm={3} xs={12}>
-            <Card className={styles.card}>
-              <CardActionArea>
-                <CardMedia
-                  style={{ height: 0, paddingTop: "56%" }}
-                  image="/githubicon.jpg"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Journal HardCover
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    Thread * 1 per journal
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  <a
-                    href="https://github.com/dpirad007"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View
-                  </a>
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
-      </div>
+      <Grid container spacing={4}>
+        {storeItems}
+      </Grid>
     );
   }
 }

@@ -32,7 +32,7 @@ class Profile extends Component {
 
   render() {
     const {
-      userProfile: { name, createdAt, piclink, bio, website, location },
+      userProfile: { name, createdAt, piclink, bio, website, location, _id },
     } = this.props;
 
     var token = window.localStorage.getItem("Authentication");
@@ -47,7 +47,7 @@ class Profile extends Component {
           <div className={styles.profileDetails}>
             <MuiLink
               component={Link}
-              to={`/users/${name}`}
+              to={`/user/${_id}`}
               color="primary"
               variant="h5"
             >

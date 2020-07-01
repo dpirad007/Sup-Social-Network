@@ -23,7 +23,7 @@ class UserProfile extends Component {
 
   render() {
     const {
-      userProfile: { name, createdAt, piclink, bio, website, location },
+      userProfile: { name, createdAt, piclink, bio, website, location, _id },
     } = this.props;
 
     return (
@@ -36,7 +36,7 @@ class UserProfile extends Component {
           <div className={styles.profileDetails}>
             <MuiLink
               component={Link}
-              to={`/users/${name}`}
+              to={`/user/${_id}`}
               color="primary"
               variant="h5"
             >

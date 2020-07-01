@@ -4,7 +4,16 @@ import jwtDecode from "jwt-decode";
 import "./App.css";
 
 //pages
-import { home, login, signup, about, maha, store, user } from "./pages";
+import {
+  home,
+  login,
+  signup,
+  about,
+  maha,
+  store,
+  user,
+  storeitemselect,
+} from "./pages";
 
 //components
 import { Navbar } from "./components";
@@ -50,6 +59,11 @@ class App extends Component {
               <Route exact path="/maha" component={maha} />
               <Route exact path="/store" component={store} />
               <Route exact path="/user/:id" component={user} />
+              <Route
+                exact
+                path="/store/itemselect"
+                component={storeitemselect}
+              />
             </Switch>
           </div>
         </Router>
