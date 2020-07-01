@@ -1,0 +1,2 @@
+/Users/Dionp/mongodb/bin/mongod.exe --dbpath=/Users/Dionp/mongodb-data
+

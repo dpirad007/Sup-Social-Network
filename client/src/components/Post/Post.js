@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 //dayjs
@@ -15,7 +16,7 @@ class Post extends Component {
   render() {
     dayjs.extend(relativeTime);
     const {
-      post: { description, createdAt, username, piclink },
+      post: { description, createdAt, username, piclink, owner },
     } = this.props;
     // const profilepicfin = "data:image/jpeg;base64," + buf;
     return (
@@ -30,7 +31,7 @@ class Post extends Component {
           <Typography
             variant="h5"
             component={Link}
-            to={`/users/${username}`}
+            to={`/user/${owner}`}
             color="primary"
           >
             {username}

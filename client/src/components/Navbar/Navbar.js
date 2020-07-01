@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 //component
 import AddSup from "../AddSup/AddSup";
 
-//page
-import maha from "../../pages/maha/maha";
-
 //material ui
 import {
   AppBar,
@@ -20,6 +17,7 @@ import {
 import InfoIcon from "@material-ui/icons/Info";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import HomeIcon from "@material-ui/icons/Home";
+import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
 
 //styles
 import styles from "./Navbar.module.css";
@@ -30,6 +28,12 @@ class Navbar extends Component {
     let navbar = token ? (
       <Fragment>
         <AddSup />
+
+        <Tooltip title="Store" placement="bottom">
+          <IconButton className={styles.button} component={Link} to="/store">
+            <LocalGroceryStoreIcon />
+          </IconButton>
+        </Tooltip>
         <Tooltip title="Home" placement="bottom">
           <IconButton className={styles.button} component={Link} to="/">
             <HomeIcon />

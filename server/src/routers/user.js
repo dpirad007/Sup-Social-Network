@@ -66,6 +66,21 @@ router.get("/users/me", auth, async (req, res) => {
   res.send(req.user);
 });
 
+//profile of other users
+router.get("/users/me/:id", async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const userProf = await User.findById(_id);
+
+    if (!userProf) {
+      return res.status(404).send();
+    }
+    res.send(userProf);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
 router.patch("/users/me", auth, async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = [
