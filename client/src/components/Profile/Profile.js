@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 
 //components
 import EditDetails from "../../components/EditDetails/EditDetails";
+import AddProject from "../../components/AddProject/AddProject";
 
 //styles
 import styles from "./Profile.module.css";
@@ -26,6 +28,22 @@ import {
 
 class Profile extends Component {
   handleLogout = () => {
+    var token = window.localStorage.getItem("Authentication");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const bodyParameters = {
+      key: "value",
+    };
+
+    const user = {};
+    axios
+      .post("http://localhost:5000/users/logout", user, config, bodyParameters)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
     window.localStorage.removeItem("Authentication");
     window.location = "/";
   };
@@ -85,6 +103,7 @@ class Profile extends Component {
             </IconButton>
           </Tooltip>
           <EditDetails />
+          <AddProject />
         </div>
       </Paper>
     ) : (

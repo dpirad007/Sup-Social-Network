@@ -19,7 +19,8 @@ class Post extends Component {
       post: { description, createdAt, username, piclink, owner },
     } = this.props;
     // const profilepicfin = "data:image/jpeg;base64," + buf;
-    return (
+    const nothing = null;
+    const gotDescription = (
       <Card className={styles.card}>
         <CardContent className={styles.content}>
           <CardMedia
@@ -43,6 +44,7 @@ class Post extends Component {
         </CardContent>
       </Card>
     );
+    return description ? gotDescription : nothing;
   }
 }
 

@@ -17,7 +17,8 @@ import {
 import InfoIcon from "@material-ui/icons/Info";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import HomeIcon from "@material-ui/icons/Home";
-import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
+
+import BlurCircularIcon from "@material-ui/icons/BlurCircular";
 
 //styles
 import styles from "./Navbar.module.css";
@@ -29,9 +30,9 @@ class Navbar extends Component {
       <Fragment>
         <AddSup />
 
-        <Tooltip title="Store" placement="bottom">
+        <Tooltip title="Projects" placement="bottom">
           <IconButton className={styles.button} component={Link} to="/store">
-            <LocalGroceryStoreIcon />
+            <BlurCircularIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="Home" placement="bottom">

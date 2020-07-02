@@ -5,4 +5,4 @@ export { default as about } from "./about/about";
 export { default as maha } from "./maha/maha";
 export { default as store } from "./store/store";
 export { default as user } from "./user/user";
-export { default as storeitemselect } from "./storeitemselect/storeitemselect";
+export { default as userpage } from "./userpage/userpage";

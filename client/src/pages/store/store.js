@@ -25,17 +25,15 @@ class store extends Component {
     products: [],
   };
   componentDidMount() {
-    axios.get("http://localhost:5000/api/store").then((res) => {
-      console.log(res.data);
+    axios.get("http://localhost:5000/task").then((res) => {
+      //console.log(res.data);
       this.setState({ products: res.data });
     });
   }
 
   render() {
     let storeItems = this.state.products.map((product) => (
-      <Grid item sm={4} xs={12}>
-        <StoreItem product={product} />
-      </Grid>
+      <StoreItem key={product._id} product={product} />
     ));
     return (
       <Grid container spacing={4}>

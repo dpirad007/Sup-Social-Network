@@ -12,7 +12,7 @@ import {
   maha,
   store,
   user,
-  storeitemselect,
+  userpage,
 } from "./pages";
 
 //components
@@ -22,7 +22,7 @@ import { Navbar } from "./components";
 import AuthRoute from "./utils/AuthRoute";
 
 let authenticated;
-const token = localStorage.auth_token;
+const token = localStorage.Authentication;
 if (token) {
   const decodedToken = jwtDecode(token);
   //console.log(decodedToken);
@@ -59,11 +59,7 @@ class App extends Component {
               <Route exact path="/maha" component={maha} />
               <Route exact path="/store" component={store} />
               <Route exact path="/user/:id" component={user} />
-              <Route
-                exact
-                path="/store/itemselect"
-                component={storeitemselect}
-              />
+              <Route exact path="/user/projects/:id" component={userpage} />
             </Switch>
           </div>
         </Router>

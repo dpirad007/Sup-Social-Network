@@ -2,3 +2,7 @@
   max-width: 80%;
   margin-left: 45px;
 }
+
+.griditem {
+  width: 30% !important;
+}

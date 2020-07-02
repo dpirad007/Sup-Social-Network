@@ -6,14 +6,15 @@ import dayjs from "dayjs";
 import styles from "./UserProfile.module.css";
 
 //material ui
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, Tooltip, IconButton } from "@material-ui/core";
 import MuiLink from "@material-ui/core/Link";
 import {
   LocationOn,
   Link as LinkIcon,
   CalendarToday,
-  ExitToApp,
 } from "@material-ui/icons";
+import BlurCircularIcon from "@material-ui/icons/BlurCircular";
+import AllOutIcon from "@material-ui/icons/AllOut";
 
 class UserProfile extends Component {
   handleLogout = () => {
@@ -68,6 +69,16 @@ class UserProfile extends Component {
             <CalendarToday color="primary" />{" "}
             <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
           </div>
+          <Tooltip title="User Projects" placement="right">
+            <IconButton component={Link} to={`/user/projects/${_id}`}>
+              <BlurCircularIcon color="primary" />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="User Sups!" placement="right">
+            <IconButton component={Link} to={`/user/${_id}`}>
+              <AllOutIcon color="primary" />
+            </IconButton>
+          </Tooltip>
         </div>
       </Paper>
     );

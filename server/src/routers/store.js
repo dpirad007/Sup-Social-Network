@@ -53,6 +53,26 @@ const data = {
       rating: 3,
       numReviews: 10,
     },
+    {
+      _id: 6,
+      name: "Rule 34",
+      category: "everykind is avaiable",
+      image: "",
+      price: 70,
+      brand: "Nike",
+      rating: 3,
+      numReviews: 10,
+    },
+    {
+      _id: 7,
+      name: "Ved",
+      category: "everykind is avaiable",
+      image: "",
+      price: 69,
+      brand: "Nike",
+      rating: 3,
+      numReviews: 10,
+    },
   ],
 };
 
