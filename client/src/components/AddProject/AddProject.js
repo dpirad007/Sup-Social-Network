@@ -21,6 +21,8 @@ class AddProject extends Component {
     project: "",
     projectdetails: "",
     completed: "",
+    whatsapplink: "",
+    githublink: "",
   };
 
   handleClickOpen = () => {
@@ -56,6 +58,8 @@ class AddProject extends Component {
       project: this.state.project,
       projectdetails: this.state.projectdetails,
       completed: this.state.completed,
+      whatsapplink: this.state.whatsapplink,
+      githublink: this.state.githublink,
     };
 
     axios
@@ -111,6 +115,30 @@ class AddProject extends Component {
                 placeholder="Tell us more about your project"
                 className={styles.TextField}
                 value={this.state.projectdetails}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                name="whatsapplink"
+                type="text"
+                label="Whatsapp embedded link"
+                multiline
+                row="3"
+                placeholder="Enter your whatsapp web link for connection"
+                className={styles.TextField}
+                value={this.state.whatsapplink}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                name="githublink"
+                type="text"
+                label="Github repository link"
+                multiline
+                row="3"
+                placeholder="Enter your github repository link"
+                className={styles.TextField}
+                value={this.state.githublink}
                 onChange={this.handleChange}
                 fullWidth
               />

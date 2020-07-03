@@ -22,6 +22,7 @@ import {
 
 //icon
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 class StoreItemProfile extends Component {
   render() {
@@ -32,6 +33,8 @@ class StoreItemProfile extends Component {
       completed,
       owner,
       _id,
+      whatsapplink,
+      githublink,
     } = this.props.product;
     const nothing = null;
     const gotProject = (
@@ -57,8 +60,26 @@ class StoreItemProfile extends Component {
         </CardActionArea>
         <CardActions className={styles.bottomButtons}>
           <Button size="small" color="primary">
-            Add
+            Request
           </Button>
+          <Button
+            size="small"
+            color="primary"
+            href={whatsapplink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Message
+          </Button>
+          <Tooltip title="Github Repository" placement="right">
+            <IconButton
+              href={githublink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon />
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Delete Project" placement="right">
             <IconButton>
               <DeleteOutlineIcon

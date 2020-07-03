@@ -35,6 +35,12 @@ const taskSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
+    whatsapplink: {
+      type: String,
+    },
+    githublink: {
+      type: String,
+    },
   },
   {
     timestamps: true,

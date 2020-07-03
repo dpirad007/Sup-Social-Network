@@ -54,7 +54,7 @@ router.get("/tasks", auth, async (req, res) => {
 //task get global(for home page)
 router.get("/task", async (req, res) => {
   try {
-    const tasks = await Task.find({}).sort({ createdAt: -1 }).limit(10);
+    const tasks = await Task.find({}).sort({ createdAt: -1 }).limit(20);
 
     res.send(tasks);
   } catch (e) {
