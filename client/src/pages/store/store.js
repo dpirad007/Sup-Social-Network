@@ -37,7 +37,7 @@ class store extends Component {
       <StoreItem key={product._id} product={product} />
     ));
     let featuredProjectitems = this.state.products.map((product) => (
-      <FeaturedProject product={product} />
+      <FeaturedProject key={product._id} product={product} />
     ));
     return (
       <Fragment>

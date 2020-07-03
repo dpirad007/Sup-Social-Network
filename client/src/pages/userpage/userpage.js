@@ -35,11 +35,31 @@ class user extends Component {
       })
       .catch((err) => console.log(err));
   }
+  deleteButton(_id) {
+    var token = window.localStorage.getItem("Authentication");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const bodyParameters = {
+      key: "value",
+    };
+    axios
+      .delete(`http://localhost:5000/tasks/${_id}`, config, bodyParameters)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   render() {
     let recentPosts = this.state.projects
       ? this.state.projects.map((project) => (
-          <StoreItemProfile key={project._id} product={project} />
+          <StoreItemProfile
+            key={project._id}
+            product={project}
+            deleteButton={this.deleteButton}
+          />
         ))
       : "Loading...";
     return (

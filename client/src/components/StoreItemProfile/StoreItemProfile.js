@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //styles
 import styles from "./StoreItemProfile.module.css";
@@ -15,7 +16,12 @@ import {
   CardMedia,
   CardActionArea,
   CardActions,
+  Tooltip,
+  IconButton,
 } from "@material-ui/core";
+
+//icon
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 class StoreItemProfile extends Component {
   render() {
@@ -25,6 +31,7 @@ class StoreItemProfile extends Component {
       projectdetails,
       completed,
       owner,
+      _id,
     } = this.props.product;
     const nothing = null;
     const gotProject = (
@@ -48,10 +55,21 @@ class StoreItemProfile extends Component {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions className={styles.bottomButtons}>
           <Button size="small" color="primary">
             Add
           </Button>
+          <Tooltip title="Delete Project" placement="right">
+            <IconButton>
+              <DeleteOutlineIcon
+                color="secondary"
+                onClick={() => {
+                  this.props.deleteButton(_id);
+                  window.location = `/user/projects/${owner}`;
+                }}
+              />
+            </IconButton>
+          </Tooltip>
         </CardActions>
       </Card>
     );
