@@ -8,7 +8,7 @@ import { Grid, StylesProvider } from "@material-ui/core";
 import styles from "./userpage.module.css";
 
 //compoents
-import StoreItem from "../../components/StoreItem/StoreItem";
+import StoreItemProfile from "../../components/StoreItemProfile/StoreItemProfile";
 import UserProfile from "../../components/UserProfile/UserProfile";
 
 class user extends Component {
@@ -39,14 +39,17 @@ class user extends Component {
   render() {
     let recentPosts = this.state.projects
       ? this.state.projects.map((project) => (
-          <StoreItem key={project._id} product={project} />
+          <StoreItemProfile key={project._id} product={project} />
         ))
       : "Loading...";
     return (
       <Grid container spacing={4}>
         <Grid item sm={8} xs={12}>
-          {recentPosts}
+          <Grid item sm={12} xs={12} className={styles.card}>
+            {recentPosts}
+          </Grid>
         </Grid>
+
         <Grid item sm={4} xs={12}>
           <UserProfile userProfile={this.state.profile} />
         </Grid>

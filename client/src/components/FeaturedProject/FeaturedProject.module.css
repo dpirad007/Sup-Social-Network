@@ -1,0 +1,14 @@
+.chip {
+  display: flex !important;
+  width: 40%;
+  margin-left: auto;
+}
+
+.card {
+  max-width: 80%;
+  margin-left: 45px;
+}
+
+.griditem {
+  width: 30% !important;
+}

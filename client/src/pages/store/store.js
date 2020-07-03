@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import axios from "axios";
 
 //styles
@@ -6,6 +6,7 @@ import styles from "./store.module.css";
 
 //components
 import StoreItem from "../../components/StoreItem/StoreItem";
+import FeaturedProject from "../../components/FeaturedProject/FeaturedProject";
 
 //material ui
 import {
@@ -35,10 +36,18 @@ class store extends Component {
     let storeItems = this.state.products.map((product) => (
       <StoreItem key={product._id} product={product} />
     ));
+    let featuredProjectitems = this.state.products.map((product) => (
+      <FeaturedProject product={product} />
+    ));
     return (
-      <Grid container spacing={4}>
-        {storeItems}
-      </Grid>
+      <Fragment>
+        <Grid container spacing={4}>
+          {featuredProjectitems}
+        </Grid>
+        <Grid container spacing={4}>
+          {storeItems}
+        </Grid>
+      </Fragment>
     );
   }
 }

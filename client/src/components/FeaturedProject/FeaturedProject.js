@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 //styles
-import styles from "./StoreItem.module.css";
+import styles from "./FeaturedProject.module.css";
 
 //material ui
 import {
@@ -15,9 +15,13 @@ import {
   CardMedia,
   CardActionArea,
   CardActions,
+  Chip,
 } from "@material-ui/core";
 
-class StoreItem extends Component {
+//icon
+import DoneIcon from "@material-ui/icons/Done";
+
+class FeaturedProject extends Component {
   render() {
     const {
       username,
@@ -25,11 +29,18 @@ class StoreItem extends Component {
       projectdetails,
       completed,
       owner,
+      featured,
     } = this.props.product;
     const nothing = null;
     const gotProject = (
       <Grid item sm={3} xs={12}>
         <Card className={styles.card}>
+          <Chip
+            label="Featured"
+            color="primary"
+            variant="outlined"
+            className={styles.chip}
+          />
           <CardActionArea component={Link} to={`/user/projects/${owner}`}>
             <CardMedia
               style={{ height: 0, paddingTop: "56%" }}
@@ -57,8 +68,8 @@ class StoreItem extends Component {
         </Card>
       </Grid>
     );
-    return project ? gotProject : nothing;
+    return project && featured === true ? gotProject : nothing;
   }
 }
 
-export default StoreItem;
+export default FeaturedProject;
