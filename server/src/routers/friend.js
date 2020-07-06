@@ -30,4 +30,45 @@ router.get("/requests/:id", async (req, res) => {
   }
 });
 
+router.delete("/friend/delete/:id", async (req, res) => {
+  try {
+    const request = await Friend.findOneAndDelete({
+      receiverid: req.params.id,
+      senderusername: req.body.sendername,
+    });
+
+    if (!request) {
+      return res.status(404).send();
+    }
+    res.send(request);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
+router.patch("/friend/add/:id", async (req, res) => {
+  try {
+    const friendAdd = await Friend.findOne({
+      receiverid: req.params.id,
+      senderusername: req.body.sendername,
+    });
+
+    if (!friendAdd) {
+      return res.status(404).send();
+    }
+
+    friendAdd.senderusername = null;
+
+    friendAdd.requests = [];
+
+    friendAdd.accepted = friendAdd.accepted.concat({
+      added: req.body.sendername,
+    });
+    await friendAdd.save();
+    res.send(friendAdd);
+  } catch (e) {
+    res.status(400).send();
+  }
+});
+
 module.exports = router;

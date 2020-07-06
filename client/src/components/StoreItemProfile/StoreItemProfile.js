@@ -74,7 +74,7 @@ class StoreItemProfile extends Component {
           <Button
             size="small"
             color="primary"
-            href={whatsapplink}
+            href={"http://" + whatsapplink}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -82,7 +82,7 @@ class StoreItemProfile extends Component {
           </Button>
           <Tooltip title="Github Repository" placement="right">
             <IconButton
-              href={githublink}
+              href={"http://" + githublink}
               target="_blank"
               rel="noopener noreferrer"
             >

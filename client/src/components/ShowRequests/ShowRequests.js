@@ -13,28 +13,11 @@ import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 //material ui stuff
 import {
   Tooltip,
-  Button,
-  TextField,
   Dialog,
-  DialogActions,
-  DialogContent,
   DialogTitle,
   IconButton,
+  List,
 } from "@material-ui/core";
-
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-
-import Avatar from "@material-ui/core/Avatar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
-
-import PersonIcon from "@material-ui/icons/Person";
-import AddIcon from "@material-ui/icons/Add";
-import Typography from "@material-ui/core/Typography";
-import { blue } from "@material-ui/core/colors";
 
 class ShowRequests extends Component {
   state = {
@@ -58,7 +41,7 @@ class ShowRequests extends Component {
     axios
       .get(`http://localhost:5000/requests/${_id}`)
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         this.setState({
           requests: res.data,
         });
@@ -93,7 +76,9 @@ class ShowRequests extends Component {
           <DialogTitle id="simple-dialog-title">
             Collaboration Requests
           </DialogTitle>
-          <DisplayRequests requests={this.state.requests} />
+          <List>
+            <DisplayRequests requests={this.state.requests} />
+          </List>
         </Dialog>
       </Fragment>
     );

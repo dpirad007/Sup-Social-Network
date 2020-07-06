@@ -11,7 +11,7 @@ const friendSchema = new mongoose.Schema(
     ],
     accepted: [
       {
-        request: {
+        added: {
           type: String,
         },
       },
@@ -29,7 +29,6 @@ const friendSchema = new mongoose.Schema(
 
     senderusername: {
       type: String,
-      required: true,
       trim: true,
     },
   },
