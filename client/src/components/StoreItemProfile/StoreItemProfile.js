@@ -36,6 +36,9 @@ class StoreItemProfile extends Component {
       whatsapplink,
       githublink,
     } = this.props.product;
+
+    const sendername = this.props.sendername;
+
     const nothing = null;
     const gotProject = (
       <Card className={styles.card}>
@@ -59,7 +62,13 @@ class StoreItemProfile extends Component {
           </CardContent>
         </CardActionArea>
         <CardActions className={styles.bottomButtons}>
-          <Button size="small" color="primary">
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => {
+              this.props.sendRequest(_id, owner, sendername);
+            }}
+          >
             Request
           </Button>
           <Button

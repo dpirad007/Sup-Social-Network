@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 //components
 import EditDetails from "../../components/EditDetails/EditDetails";
 import AddProject from "../../components/AddProject/AddProject";
+import ShowRequests from "../../components/ShowRequests/ShowRequests";
 
 //styles
 import styles from "./Profile.module.css";
@@ -25,6 +26,7 @@ import {
   CalendarToday,
   ExitToApp,
 } from "@material-ui/icons";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 
 class Profile extends Component {
   handleLogout = () => {
@@ -61,6 +63,7 @@ class Profile extends Component {
           <div className={styles.profileImage}>
             <img src={piclink} alt="profilepic" />
           </div>
+          <ShowRequests component={_id} />
           <hr className={styles.hruler} />
           <div className={styles.profileDetails}>
             <MuiLink

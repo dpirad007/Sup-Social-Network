@@ -39,3 +39,8 @@
 .text {
   color: rgb(79, 85, 83);
 }
+
+.requests {
+  display: flex;
+  justify-content: space-between !important;
+}

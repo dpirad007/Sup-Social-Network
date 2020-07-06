@@ -36,7 +36,8 @@ const cookieParser = require("cookie-parser");
 require("./db/mongoose"); //runs the mongoose file
 const userRouter = require("./routers/user"); //using it from user file
 const taskRouter = require("./routers/task");
-const storeRouter = require("./routers/store");
+const friendRouter = require("./routers/friend");
+
 const cors = require("cors");
 
 require("dotenv").config();
@@ -53,7 +54,7 @@ app.use(express.json());
 //routers
 app.use(userRouter);
 app.use(taskRouter);
-app.use(storeRouter);
+app.use(friendRouter);
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);

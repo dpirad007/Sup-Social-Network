@@ -15,6 +15,7 @@ class user extends Component {
   state = {
     profile: {},
     projects: [],
+    sendername: "",
   };
   componentDidMount() {
     const handle = this.props.match.params.id;
@@ -32,6 +33,23 @@ class user extends Component {
       .then((res) => {
         //console.log(res.data);
         this.setState({ projects: res.data });
+      })
+      .catch((err) => console.log(err));
+
+    var token = window.localStorage.getItem("Authentication");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    const bodyParameters = {
+      key: "value",
+    };
+
+    axios
+      .get(`http://localhost:5000/users/me`, config, bodyParameters)
+      .then((res) => {
+        this.setState({ sendername: res.data.name });
+        //console.log(res.data.name);
       })
       .catch((err) => console.log(err));
   }
@@ -52,6 +70,20 @@ class user extends Component {
       .catch((err) => console.log(err));
   }
 
+  sendRequest = (senderid, recieverid, username) => {
+    const request = {
+      senderid: senderid,
+      receiverid: recieverid,
+      senderusername: username,
+    };
+    axios
+      .post("http://localhost:5000/friend", request)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     let recentPosts = this.state.projects
       ? this.state.projects.map((project) => (
@@ -59,6 +91,8 @@ class user extends Component {
             key={project._id}
             product={project}
             deleteButton={this.deleteButton}
+            sendRequest={this.sendRequest}
+            sendername={this.state.sendername}
           />
         ))
       : "Loading...";

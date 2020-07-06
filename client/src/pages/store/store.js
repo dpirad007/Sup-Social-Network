@@ -41,9 +41,23 @@ class store extends Component {
     ));
     return (
       <Fragment>
+        <Typography
+          variant="h3"
+          color="textSecondary"
+          className={styles.header}
+        >
+          Featured Projects
+        </Typography>
         <Grid container spacing={4}>
           {featuredProjectitems}
         </Grid>
+        <Typography
+          variant="h3"
+          color="textSecondary"
+          className={styles.header}
+        >
+          Explore
+        </Typography>
         <Grid container spacing={4}>
           {storeItems}
         </Grid>
