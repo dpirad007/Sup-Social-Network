@@ -47,6 +47,23 @@ router.get("/requests/check/:id", async (req, res) => {
   }
 });
 
+router.get("/getfriends/:id", async (req, res) => {
+  const _id = req.params.id;
+  try {
+    const requestfriend = await Friend.find({
+      receiverid: _id,
+    });
+
+    if (!requestfriend) {
+      return res.status(404).send();
+    }
+
+    res.send(requestfriend);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
 router.delete("/friend/delete/:id", async (req, res) => {
   try {
     const request = await Friend.findOneAndDelete({

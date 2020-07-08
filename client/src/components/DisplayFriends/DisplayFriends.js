@@ -2,13 +2,13 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 
 //components
-import DisplayRequests from "../../components/DisplayRequests/DisplayRequests";
+import DisplayFriendNames from "../../components/DisplayFriendNames/DisplayFriendNames";
 
 //styles
-import styles from "./ShowRequests.module.css";
+import styles from "./DisplayFriends.module.css";
 
 //mui icons
-import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 
 //material ui stuff
 import {
@@ -19,10 +19,10 @@ import {
   List,
 } from "@material-ui/core";
 
-class ShowRequests extends Component {
+class DisplayFriends extends Component {
   state = {
     open: false,
-    requests: [],
+    data: [],
   };
 
   handleClickOpen = () => {
@@ -39,28 +39,33 @@ class ShowRequests extends Component {
 
   getRequests = (_id) => {
     axios
-      .get(`http://localhost:5000/requests/${_id}`)
+      .get(`http://localhost:5000/getfriends/${_id}`)
       .then((res) => {
         console.log(res.data);
         this.setState({
-          requests: res.data,
+          data: res.data,
         });
       })
       .catch((err) => console.log(err));
+
+    // var friendnames = this.state.data.map(
+    //   (friend) => friend.accepted[0].accept
+    // );
+    // this.setState({ friends: friendnames });
   };
 
   render() {
     const _id = this.props.component;
     return (
       <Fragment>
-        <Tooltip title="Collaboration requests" placement="right">
+        <Tooltip title="Collaborators" placement="right">
           <IconButton
             className={styles.requests}
             onClick={() => {
               this.handleClickOpen();
             }}
           >
-            <AssignmentIndIcon
+            <SupervisorAccountIcon
               color="primary"
               onClick={() => {
                 this.getRequests(_id);
@@ -73,11 +78,9 @@ class ShowRequests extends Component {
           onClose={this.handleClose}
           aria-labelledby="simple-dialog-title"
         >
-          <DialogTitle id="simple-dialog-title">
-            Collaboration Requests
-          </DialogTitle>
+          <DialogTitle id="simple-dialog-title">Co Collaborators</DialogTitle>
           <List>
-            <DisplayRequests requests={this.state.requests} />
+            <DisplayFriendNames data={this.state.data} />
           </List>
         </Dialog>
       </Fragment>
@@ -85,4 +88,4 @@ class ShowRequests extends Component {
   }
 }
 
-export default ShowRequests;
+export default DisplayFriends;

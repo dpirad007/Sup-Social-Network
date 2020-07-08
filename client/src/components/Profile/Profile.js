@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import EditDetails from "../../components/EditDetails/EditDetails";
 import AddProject from "../../components/AddProject/AddProject";
 import ShowRequests from "../../components/ShowRequests/ShowRequests";
+import DisplayFriends from "../../components/DisplayFriends/DisplayFriends";
 
 //styles
 import styles from "./Profile.module.css";
@@ -64,6 +65,7 @@ class Profile extends Component {
             <img src={piclink} alt="profilepic" />
           </div>
           <ShowRequests component={_id} />
+          <DisplayFriends component={_id} />
           <hr className={styles.hruler} />
           <div className={styles.profileDetails}>
             <MuiLink
