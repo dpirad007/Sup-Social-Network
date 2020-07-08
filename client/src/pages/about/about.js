@@ -38,14 +38,14 @@ class about extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                <a
-                  href="https://github.com/dpirad007"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
+              <Button
+                size="small"
+                color="primary"
+                href="https://github.com/dpirad007"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
               </Button>
             </CardActions>
           </Card>
@@ -60,7 +60,7 @@ class about extends Component {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Archit Bhonsale
+                  Archit Bhonsle
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   Github Repository
@@ -68,14 +68,14 @@ class about extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                <a
-                  href="https://github.com/ArchitBhonsle"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
+              <Button
+                size="small"
+                color="primary"
+                href="https://github.com/ArchitBhonsle"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
               </Button>
             </CardActions>
           </Card>
@@ -98,14 +98,14 @@ class about extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                <a
-                  href="https://github.com/vedpatil611"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
+              <Button
+                size="small"
+                color="primary"
+                href="https://github.com/vedpatil611"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
               </Button>
             </CardActions>
           </Card>
@@ -128,14 +128,14 @@ class about extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                <a
-                  href="https://github.com/bhabalomkar421"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
+              <Button
+                size="small"
+                color="primary"
+                href="https://github.com/bhabalomkar421"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
               </Button>
             </CardActions>
           </Card>
@@ -158,14 +158,14 @@ class about extends Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
-                <a
-                  href="https://github.com/arpitbhat48"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View
-                </a>
+              <Button
+                size="small"
+                color="primary"
+                href="https://github.com/arpitbhat48"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
               </Button>
             </CardActions>
           </Card>

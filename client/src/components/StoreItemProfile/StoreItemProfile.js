@@ -25,6 +25,21 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 class StoreItemProfile extends Component {
+  state = {
+    accepted: [],
+  };
+  check = (id) => {
+    axios
+      .get(`http://localhost:5000/requests/check/${id}`)
+      .then((res) => {
+        //console.log(res.data);
+        this.setState({
+          accepted: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     const {
       username,
@@ -40,9 +55,42 @@ class StoreItemProfile extends Component {
     const sendername = this.props.sendername;
 
     const nothing = null;
+
+    var sol = false;
+
+    const check = this.state.accepted.map((friend) => {
+      if (friend.accepted.length > 0) {
+        return friend.accepted[0].accept.includes(sendername);
+      }
+    });
+
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] === true) {
+        sol = true;
+      }
+    }
+
+    const message = sol ? (
+      <Button
+        size="small"
+        color="primary"
+        href={"http://" + whatsapplink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Message
+      </Button>
+    ) : null;
+
     const gotProject = (
       <Card className={styles.card}>
-        <CardActionArea component={Link} to={`/user/projects/${owner}`}>
+        <CardActionArea
+          component={Link}
+          to={`/user/projects/${owner}`}
+          onClick={() => {
+            this.check(owner);
+          }}
+        >
           <CardMedia
             style={{ height: 0, paddingTop: "56%" }}
             image="/githubicon.jpg"
@@ -71,15 +119,7 @@ class StoreItemProfile extends Component {
           >
             Request
           </Button>
-          <Button
-            size="small"
-            color="primary"
-            href={"http://" + whatsapplink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Message
-          </Button>
+          {message}
           <Tooltip title="Github Repository" placement="right">
             <IconButton
               href={"http://" + githublink}

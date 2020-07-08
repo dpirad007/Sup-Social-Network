@@ -38,6 +38,9 @@ const taskSchema = new mongoose.Schema(
     whatsapplink: {
       type: String,
     },
+    projectlink: {
+      type: String,
+    },
     githublink: {
       type: String,
     },

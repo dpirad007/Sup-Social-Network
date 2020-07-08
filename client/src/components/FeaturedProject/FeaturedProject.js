@@ -30,6 +30,7 @@ class FeaturedProject extends Component {
       completed,
       owner,
       featured,
+      projectlink,
     } = this.props.product;
     const nothing = null;
     const gotProject = (
@@ -61,8 +62,14 @@ class FeaturedProject extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              Add
+            <Button
+              size="small"
+              color="primary"
+              href={projectlink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Try It Out
             </Button>
           </CardActions>
         </Card>

@@ -11,7 +11,7 @@ const friendSchema = new mongoose.Schema(
     ],
     accepted: [
       {
-        added: {
+        accept: {
           type: String,
         },
       },

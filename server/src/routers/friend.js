@@ -30,6 +30,23 @@ router.get("/requests/:id", async (req, res) => {
   }
 });
 
+router.get("/requests/check/:id", async (req, res) => {
+  const _id = req.params.id;
+  try {
+    const requestfriend = await Friend.find({
+      receiverid: _id,
+    });
+
+    if (!requestfriend) {
+      return res.status(404).send();
+    }
+
+    res.send(requestfriend);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
 router.delete("/friend/delete/:id", async (req, res) => {
   try {
     const request = await Friend.findOneAndDelete({
@@ -61,9 +78,11 @@ router.patch("/friend/add/:id", async (req, res) => {
 
     friendAdd.requests = [];
 
+    // friendAdd.accepted = req.body.sendername;
     friendAdd.accepted = friendAdd.accepted.concat({
-      added: req.body.sendername,
+      accept: req.body.sendername,
     });
+
     await friendAdd.save();
     res.send(friendAdd);
   } catch (e) {
