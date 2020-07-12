@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/tasks", auth, async (req, res) => {
   const task = new Task({
-    ...req.body, //...->es6 spread operator,(...req.body)->will copy all properties from body into the object
+    ...req.body,
     owner: req.user._id,
     piclink: req.user.piclink,
     username: req.user.name,

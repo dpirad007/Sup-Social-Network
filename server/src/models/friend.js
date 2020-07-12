@@ -37,9 +37,7 @@ const friendSchema = new mongoose.Schema(
   }
 );
 
-//dobut(diff betwenn statics and methods)
 friendSchema.methods.sendRequest = async function () {
-  //normal function since we ahve to use this
   const friend = this;
   const request = friend.senderid;
   friend.requests = friend.requests.concat({ request: request });

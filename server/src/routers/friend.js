@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/friend", async (req, res) => {
   const friend = new Friend({
-    ...req.body, //...->es6 spread operator,(...req.body)->will copy all properties from body into the object
+    ...req.body,
   });
   try {
     const request = await friend.sendRequest();
@@ -95,7 +95,6 @@ router.patch("/friend/add/:id", async (req, res) => {
 
     friendAdd.requests = [];
 
-    // friendAdd.accepted = req.body.sendername;
     friendAdd.accepted = friendAdd.accepted.concat({
       accept: req.body.sendername,
     });

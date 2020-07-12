@@ -140,8 +140,6 @@ router.post(
   auth,
   upload.single("avatar"),
   async (req, res) => {
-    //req.user.avatar = req.file.buffer //to save the image to the user avatar in user model
-    //lec 129(sharp)
     const buffer = await sharp(req.file.buffer)
       .resize({ width: 250, height: 250 })
       .png()
@@ -151,7 +149,7 @@ router.post(
     res.send();
   },
   (error, req, res, next) => {
-    res.status(400).send({ error: error.message }); //to print multer error which was html as json(cleaner)
+    res.status(400).send({ error: error.message });
   }
 );
 

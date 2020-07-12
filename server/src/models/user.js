@@ -74,14 +74,12 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-//if you have doubt below block see lec 114
 userSchema.virtual("tasks", {
   ref: "Tasks",
   localField: "_id",
   foreignField: "owner",
 });
 
-//lec sec12 lec 112
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
@@ -93,7 +91,6 @@ userSchema.methods.toJSON = function () {
   return userObject;
 };
 
-//userschema.statics is used to create custom middleware
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
 
@@ -110,32 +107,28 @@ userSchema.statics.findByCredentials = async (email, password) => {
   return user;
 };
 
-//dobut(diff betwenn statics and methods)
 userSchema.methods.generateAuthToken = async function () {
-  //normal function since we ahve to use this
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, "thisismynewcourse", {
     expiresIn: "1 days",
   });
 
-  user.tokens = user.tokens.concat({ token }); //{token:token}->use short hand
+  user.tokens = user.tokens.concat({ token });
   await user.save();
 
   return token;
 };
 
-//hash the plain text password before saving
 userSchema.pre("save", async function (next) {
-  const user = this; //to access each user
+  const user = this;
 
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
   }
 
-  next(); //necesaary to end the function
+  next();
 });
 
-//delete user task when user is removed
 userSchema.pre("remove", async function (next) {
   const user = this;
   await Task.deleteMany({ owner: user._id });
