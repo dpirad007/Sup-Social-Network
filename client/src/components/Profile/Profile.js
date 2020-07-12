@@ -27,7 +27,6 @@ import {
   CalendarToday,
   ExitToApp,
 } from "@material-ui/icons";
-import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 
 class Profile extends Component {
   handleLogout = () => {

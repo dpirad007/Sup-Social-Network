@@ -7,7 +7,6 @@ import styles from "./about.module.css";
 import {
   Grid,
   Typography,
-  TextField,
   Button,
   Card,
   CardContent,

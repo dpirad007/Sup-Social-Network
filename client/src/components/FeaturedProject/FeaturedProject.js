@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 //styles
@@ -8,7 +8,6 @@ import styles from "./FeaturedProject.module.css";
 import {
   Grid,
   Typography,
-  TextField,
   Button,
   Card,
   CardContent,
@@ -17,9 +16,6 @@ import {
   CardActions,
   Chip,
 } from "@material-ui/core";
-
-//icon
-import DoneIcon from "@material-ui/icons/Done";
 
 class FeaturedProject extends Component {
   render() {

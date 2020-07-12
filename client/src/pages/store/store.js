@@ -9,17 +9,7 @@ import StoreItem from "../../components/StoreItem/StoreItem";
 import FeaturedProject from "../../components/FeaturedProject/FeaturedProject";
 
 //material ui
-import {
-  Grid,
-  Typography,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActionArea,
-  CardActions,
-} from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 class store extends Component {
   state = {
@@ -27,7 +17,6 @@ class store extends Component {
   };
   componentDidMount() {
     axios.get("http://localhost:5000/task").then((res) => {
-      //console.log(res.data);
       this.setState({ products: res.data });
     });
   }

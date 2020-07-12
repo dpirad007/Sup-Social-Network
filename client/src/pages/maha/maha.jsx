@@ -7,7 +7,7 @@ import StateChart from "../../components/StateChart/StateChart";
 
 import styles from "./maha.module.css";
 
-import { fetchMahaData, fetchDistData } from "../../api/index";
+import { fetchDistData } from "../../api/index";
 
 class maha extends Component {
   state = {
@@ -20,16 +20,8 @@ class maha extends Component {
     state1: "Ahmednagar",
   };
 
-  // async componentDidMount () {
-  //     const fetchedStateData = await fetchDistData('Thane');
-
-  //     console.log(fetchedStateData);
-  // }
-
   handleStateChange = async (state) => {
     const fetchedStateData = await fetchDistData(state);
-
-    //console.log(fetchedStateData);
 
     this.setState({ data: fetchedStateData, state1: state });
   };

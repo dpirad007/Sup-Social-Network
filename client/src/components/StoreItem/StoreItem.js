@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 //styles
@@ -8,13 +8,10 @@ import styles from "./StoreItem.module.css";
 import {
   Grid,
   Typography,
-  TextField,
-  Button,
   Card,
   CardContent,
   CardMedia,
   CardActionArea,
-  CardActions,
 } from "@material-ui/core";
 
 class StoreItem extends Component {

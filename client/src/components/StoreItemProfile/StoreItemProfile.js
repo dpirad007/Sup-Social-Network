@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -7,9 +7,7 @@ import styles from "./StoreItemProfile.module.css";
 
 //material ui
 import {
-  Grid,
   Typography,
-  TextField,
   Button,
   Card,
   CardContent,
@@ -32,7 +30,6 @@ class StoreItemProfile extends Component {
     axios
       .get(`http://localhost:5000/requests/check/${id}`)
       .then((res) => {
-        //console.log(res.data);
         this.setState({
           accepted: res.data,
         });
@@ -62,6 +59,7 @@ class StoreItemProfile extends Component {
       if (friend.accepted.length > 0) {
         return friend.accepted[0].accept.includes(sendername);
       }
+      return [];
     });
 
     for (let i = 0; i < check.length; i++) {
@@ -74,7 +72,7 @@ class StoreItemProfile extends Component {
       <Button
         size="small"
         color="primary"
-        href={"http://" + whatsapplink}
+        href={" https://wa.me/91" + whatsapplink}
         target="_blank"
         rel="noopener noreferrer"
       >

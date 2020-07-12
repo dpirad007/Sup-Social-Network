@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 
 //material ui
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
@@ -32,7 +31,6 @@ class DisplayRequests extends Component {
     const user = {
       sendername: sendername,
     };
-    const headers = {};
 
     axios
       .delete(`http://localhost:5000/friend/delete/${id}`, { data: user })

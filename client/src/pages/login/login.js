@@ -14,15 +14,11 @@ class login extends Component {
   state = {
     email: "",
     password: "",
-    loading: false,
     errors: {},
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      loading: true,
-    });
 
     const userData = {
       email: this.state.email,
@@ -32,21 +28,14 @@ class login extends Component {
     axios
       .post("http://localhost:5000/users/login", userData)
       .then((res) => {
-        //console.log(res.data);
         localStorage.setItem("Authentication", res.data.token);
-        this.setState({
-          loading: false,
-        });
 
-        //this.props.history.push("/"); //jump to homepage
         window.location = "/";
       })
       .catch((err) => {
         this.setState({
           errors: err.response.data,
-          loading: false,
         });
-        //console.log(err.response.data);
       });
   };
 
@@ -57,7 +46,7 @@ class login extends Component {
   };
 
   render() {
-    const { loading, errors } = this.state;
+    const { errors } = this.state;
 
     return (
       <Grid container className={styles.form}>

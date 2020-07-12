@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 //material ui
-import { Grid, StylesProvider } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 //styles
 import styles from "./userpage.module.css";

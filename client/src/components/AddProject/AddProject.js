@@ -45,7 +45,6 @@ class AddProject extends Component {
 
   handleSubmit = () => {
     var token = window.localStorage.getItem("Authentication");
-    //console.log(token);
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -121,10 +120,10 @@ class AddProject extends Component {
               <TextField
                 name="whatsapplink"
                 type="text"
-                label="Whatsapp embedded link"
+                label="Phone Number"
                 multiline
                 row="3"
-                placeholder="Enter your whatsapp web link for connection"
+                placeholder="Enter your whatsapp number (only the accepted users can view)"
                 className={styles.TextField}
                 value={this.state.whatsapplink}
                 onChange={this.handleChange}

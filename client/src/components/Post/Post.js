@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 //dayjs
@@ -18,7 +17,7 @@ class Post extends Component {
     const {
       post: { description, createdAt, username, piclink, owner },
     } = this.props;
-    // const profilepicfin = "data:image/jpeg;base64," + buf;
+
     const nothing = null;
     const gotDescription = (
       <Card className={styles.card}>
