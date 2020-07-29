@@ -62,12 +62,7 @@ class AddProject extends Component {
     };
 
     axios
-      .post(
-        "http://localhost:5000/tasks",
-        projectUpdates,
-        config,
-        bodyParameters
-      )
+      .post("/tasks", projectUpdates, config, bodyParameters)
       .then((res) => {
         console.log(res.data);
       })

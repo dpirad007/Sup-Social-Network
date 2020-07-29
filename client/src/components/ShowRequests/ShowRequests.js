@@ -39,7 +39,7 @@ class ShowRequests extends Component {
 
   getRequests = (_id) => {
     axios
-      .get(`http://localhost:5000/requests/${_id}`)
+      .get(`/requests/${_id}`)
       .then((res) => {
         console.log(res.data);
         this.setState({

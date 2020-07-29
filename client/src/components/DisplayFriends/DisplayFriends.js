@@ -39,7 +39,7 @@ class DisplayFriends extends Component {
 
   getRequests = (_id) => {
     axios
-      .get(`http://localhost:5000/getfriends/${_id}`)
+      .get(`/getfriends/${_id}`)
       .then((res) => {
         console.log(res.data);
         this.setState({

@@ -41,7 +41,7 @@ class Profile extends Component {
 
     const user = {};
     axios
-      .post("http://localhost:5000/users/logout", user, config, bodyParameters)
+      .post("/users/logout", user, config, bodyParameters)
       .then((res) => {
         console.log(res);
       })

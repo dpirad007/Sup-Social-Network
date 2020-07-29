@@ -95,9 +95,11 @@ router.patch("/friend/add/:id", async (req, res) => {
 
     friendAdd.requests = [];
 
-    friendAdd.accepted = friendAdd.accepted.concat({
-      accept: req.body.sendername,
-    });
+    // friendAdd.accepted = friendAdd.accepted.concat({
+    //   accept: req.body.sendername,
+    // });
+
+    friendAdd.accepted = req.body.sendername;
 
     await friendAdd.save();
     res.send(friendAdd);

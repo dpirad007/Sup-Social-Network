@@ -17,7 +17,7 @@ class user extends Component {
     const handle = this.props.match.params.id;
     //console.log(handle);
     axios
-      .get(`http://localhost:5000/users/me/${handle}`)
+      .get(`/users/me/${handle}`)
       .then((res) => {
         //console.log(res.data);
         this.setState({ profile: res.data });
@@ -25,7 +25,7 @@ class user extends Component {
       .catch((err) => console.log(err));
 
     axios
-      .get(`http://localhost:5000/tasks/profile/${handle}`)
+      .get(`/tasks/profile/${handle}`)
       .then((res) => {
         //console.log(res.data);
         this.setState({ posts: res.data });

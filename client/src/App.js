@@ -22,17 +22,17 @@ import { Navbar } from "./components";
 import AuthRoute from "./utils/AuthRoute";
 
 let authenticated;
-const token = localStorage.Authentication;
-if (token) {
-  const decodedToken = jwtDecode(token);
-  //console.log(decodedToken);
-  if (decodedToken.exp * 1000 < Date.now()) {
-    window.location.href = "/login";
-    authenticated = false;
-  } else {
-    authenticated = true;
-  }
-}
+// const token = localStorage.Authentication;
+// if (token) {
+//   const decodedToken = jwtDecode(token);
+//   //console.log(decodedToken);
+//   if (decodedToken.exp * 1000 < Date.now()) {
+//     window.location.href = "/login";
+//     authenticated = false;
+//   } else {
+//     authenticated = true;
+//   }
+// }
 
 class App extends Component {
   render() {
@@ -43,18 +43,8 @@ class App extends Component {
             <Navbar />
             <Switch>
               <Route exact path="/" component={home} />
-              <AuthRoute
-                exact
-                path="/login"
-                component={login}
-                authenticated={authenticated}
-              />
-              <AuthRoute
-                exact
-                path="/signup"
-                component={signup}
-                authenticated={authenticated}
-              />
+              <Route exact path="/login" component={login} />
+              <Route exact path="/signup" component={signup} />
               <Route exact path="/about" component={about} />
               <Route exact path="/maha" component={maha} />
               <Route exact path="/store" component={store} />

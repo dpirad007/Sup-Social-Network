@@ -28,7 +28,7 @@ class StoreItemProfile extends Component {
   };
   check = (id) => {
     axios
-      .get(`http://localhost:5000/requests/check/${id}`)
+      .get(`/requests/check/${id}`)
       .then((res) => {
         this.setState({
           accepted: res.data,
@@ -57,7 +57,7 @@ class StoreItemProfile extends Component {
 
     const check = this.state.accepted.map((friend) => {
       if (friend.accepted.length > 0) {
-        return friend.accepted[0].accept.includes(sendername);
+        return friend.accepted.includes(sendername);
       }
       return [];
     });

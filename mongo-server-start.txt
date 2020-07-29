@@ -1,2 +1,3 @@
 /Users/Dionp/mongodb/bin/mongod.exe --dbpath=/Users/Dionp/mongodb-data
+MONGO_URL=mongodb://127.0.0.1:27017/Summer-Project-api
 

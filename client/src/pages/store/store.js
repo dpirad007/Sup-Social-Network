@@ -16,7 +16,7 @@ class store extends Component {
     products: [],
   };
   componentDidMount() {
-    axios.get("http://localhost:5000/task").then((res) => {
+    axios.get("/task").then((res) => {
       this.setState({ products: res.data });
     });
   }

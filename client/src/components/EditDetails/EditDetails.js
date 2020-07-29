@@ -35,7 +35,7 @@ class EditDetails extends Component {
     };
 
     axios
-      .get("http://localhost:5000/users/me", config, bodyParameters)
+      .get("/users/me", config, bodyParameters)
       .then((res) => {
         this.setState({
           bio: res.data.bio,
@@ -83,12 +83,7 @@ class EditDetails extends Component {
     };
 
     axios
-      .patch(
-        "http://localhost:5000/users/me",
-        userUpdates,
-        config,
-        bodyParameters
-      )
+      .patch("/users/me", userUpdates, config, bodyParameters)
       .then((res) => {
         console.log(res.data);
       })

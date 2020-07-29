@@ -32,7 +32,7 @@ class signup extends Component {
     };
 
     axios
-      .post("http://localhost:5000/users", userData)
+      .post("/users", userData)
       .then((res) => {
         //console.log(res.data);
         this.setState({

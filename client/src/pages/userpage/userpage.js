@@ -21,7 +21,7 @@ class user extends Component {
     const handle = this.props.match.params.id;
     //console.log(handle);
     axios
-      .get(`http://localhost:5000/users/me/${handle}`)
+      .get(`/users/me/${handle}`)
       .then((res) => {
         //console.log(res.data);
         this.setState({ profile: res.data });
@@ -29,7 +29,7 @@ class user extends Component {
       .catch((err) => console.log(err));
 
     axios
-      .get(`http://localhost:5000/tasks/profile/${handle}`)
+      .get(`/tasks/profile/${handle}`)
       .then((res) => {
         //console.log(res.data);
         this.setState({ projects: res.data });
@@ -46,7 +46,7 @@ class user extends Component {
     };
 
     axios
-      .get(`http://localhost:5000/users/me`, config, bodyParameters)
+      .get(`/users/me`, config, bodyParameters)
       .then((res) => {
         this.setState({ sendername: res.data.name });
         //console.log(res.data.name);
@@ -63,7 +63,7 @@ class user extends Component {
       key: "value",
     };
     axios
-      .delete(`http://localhost:5000/tasks/${_id}`, config, bodyParameters)
+      .delete(`/tasks/${_id}`, config, bodyParameters)
       .then((res) => {
         console.log(res.data);
       })
@@ -77,7 +77,7 @@ class user extends Component {
       senderusername: username,
     };
     axios
-      .post("http://localhost:5000/friend", request)
+      .post("/friend", request)
       .then((res) => {
         console.log(res.data);
       })

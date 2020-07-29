@@ -4,9 +4,6 @@ import axios from "axios";
 //material ui
 import { Grid } from "@material-ui/core";
 
-//styles
-//import styles from "./home.module.css";
-
 //compoents
 import Post from "../../components/Post/Post";
 import Profile from "../../components/Profile/Profile";
@@ -26,22 +23,10 @@ class home extends Component {
     const bodyParameters = {
       key: "value",
     };
-    // axios
-    //   .get("http://localhost:5000/tasks", config, bodyParameters)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     this.setState({
-    //       posts: res.data,
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
 
     axios
-      .get("http://localhost:5000/task")
+      .get("/task")
       .then((res) => {
-        //console.log(res.data);
         this.setState({
           posts: res.data,
         });
@@ -51,16 +36,13 @@ class home extends Component {
       });
 
     axios
-      .get("http://localhost:5000/users/me", config, bodyParameters)
+      .get("/users/me", config, bodyParameters)
       .then((res) => {
-        //console.log(res.data);
         this.setState({
           userProfile: res.data,
         });
       })
-      .catch((err) => {
-        //console.log(err);
-      });
+      .catch((err) => {});
   }
 
   render() {

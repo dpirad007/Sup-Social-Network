@@ -56,7 +56,7 @@ class AddSup extends Component {
     };
 
     axios
-      .post("http://localhost:5000/tasks", task, config, bodyParameters)
+      .post("/tasks", task, config, bodyParameters)
       .then((res) => {
         //console.log(res.data);
         window.location = "/";

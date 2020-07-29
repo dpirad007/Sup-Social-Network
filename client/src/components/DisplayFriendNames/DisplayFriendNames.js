@@ -11,7 +11,7 @@ class DisplayFriendNames extends Component {
   render() {
     const data = this.props.data;
 
-    var friendnames = data.map((friend) => friend.accepted[0].accept);
+    var friendnames = data.map((friend) => friend.accepted);
 
     return (
       <Fragment>

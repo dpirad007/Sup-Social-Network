@@ -18,7 +18,7 @@ class DisplayRequests extends Component {
     };
 
     axios
-      .patch(`http://localhost:5000/friend/add/${id}`, user)
+      .patch(`/friend/add/${id}`, user)
       .then((res) => {
         console.log(res.data);
       })
@@ -33,7 +33,7 @@ class DisplayRequests extends Component {
     };
 
     axios
-      .delete(`http://localhost:5000/friend/delete/${id}`, { data: user })
+      .delete(`/friend/delete/${id}`, { data: user })
       .then((res) => {
         console.log(res.data);
       })
