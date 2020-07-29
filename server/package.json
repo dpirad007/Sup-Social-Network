@@ -16,7 +16,7 @@
     "validator": "^13.1.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "dev": "env-cmd ./env nodemon src/index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
